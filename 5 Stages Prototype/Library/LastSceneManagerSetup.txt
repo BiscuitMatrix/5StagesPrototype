@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Denial.unity
+- path: Assets/GameObjects/Denial.unity
   isLoaded: 1
   isActive: 1
