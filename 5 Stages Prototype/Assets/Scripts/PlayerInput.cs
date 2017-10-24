@@ -40,18 +40,19 @@ public class PlayerInput : MonoBehaviour
         // Take the past position
         // Compare
 
-        if (Input.GetTouch(0) == /* Swipe Left */)
-        {
+       // if (Input.GetTouch(0) == /* Swipe Left */)
+       // {
             // Is there a path on the left?
             // If there is, move player to path on the left
             // If not, do nothing
-        }
-        else if ((Input.GetTouch(0) == /* Swipe Right */))
-        {
+      // }
+       // else if ((Input.GetTouch(0) == /* Swipe Right */))
+       // {
             // Is there a path on the right?
             // If there is, move player to path on the right
             // If not, do nothing
-        }
+       // }
+        
     } // End Input
 
 }
