@@ -1,0 +1,21 @@
+Object Movement in Unity
+******************************
+Good Tutorial: 	https://unity3d.com/learn/tutorials/topics/scripting/translate-and-rotate?playlist=17117
+
+Desktop Keypresses:
+A list of Keyboard inputs can be found in: https://docs.unity3d.com/ScriptReference/KeyCode.html
+E.g. -> Input.GetKey(KeyCode.UpArrow)
+Input.GetKey ->	Returns True while the user holds down the key identified by 'name'.
+Input.GetKeyDown ->	Returns true during the frame the user starts pressing down the key identified by 'name'.
+Input.GetKeyUp ->	Returns true during the frame the user releases the key identified by 'name'.
+
+
+
+- transform.Translate(new Vector3(0,0,1) * Time.deltaTime)
+	-> This moves an object within the game.
+	-> Multiplying the Vector3 by the time value makes the object move in distance per unit time.
+	-> Doing this multiplication means this runs a lot better.
+	-> Vector3.forward moves the objext in the positive Z-axis (doing this means you can establish the movespeed as a separate value).
+
+
+
