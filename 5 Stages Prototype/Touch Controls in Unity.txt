@@ -1,0 +1,25 @@
+Touch Controls in Unity
+***************************
+- A touch is tracked over its "lifetime" by the device.
+- The start and end of a touch and movements in between can be reported on the frames they occur.
+
+
+Touch.phase - The action the finger has taken on the most recent frame update.
+- This property can be used as the basis of a "switch" statement, or any state handling system basically.
+-  See: https://docs.unity3d.com/ScriptReference/Touch-phase.html
+
+Touch.deltaPosition 	- This is a Vector2 that represents the difference between the touch position 
+		  recorded on the most recent update and that recorded on the previous update.
+The deltaTime value gives the time that elapsed between the previous and current updates.
+You can calculate the touch's speed of motion by dividing deltaPosition.magnitude by deltaTime.
+
+Touch.fingerId - The unique index for the touch 
+
+Input.touches - Returns a list of objects representing the status of all touches during last frame.
+	- Each entry represents a status of a finger touching the screen.
+See here for some code in keeping track of multiple touches: https://docs.unity3d.com/ScriptReference/Input-touches.html
+
+TouchPhase - This is an object formed of an enumeration, it describes the phase of a finger touch.
+- Began, Moved, Stationary, Ended, Cancelled
+Use: if(TouchPhase.Moved == true) 
+

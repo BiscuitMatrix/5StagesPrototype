@@ -291,6 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8982243ff83ebd43b7c08fd46a85002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  constVel: 0.5
 --- !u!1 &681339899
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,7 +592,7 @@ GameObject:
   - component: {fileID: 1831998393}
   m_Layer: 0
   m_Name: Player Object
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -752,7 +753,7 @@ GameObject:
   - component: {fileID: 1922584039}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
