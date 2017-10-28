@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MetaGame.unity
+    guid: 0135ca6cec151214da030cc3708e4a44
+  - enabled: 1
+    path: Assets/Scenes/Denial.unity
+    guid: 247b7777b4b516249b6023eb61fb6f0e

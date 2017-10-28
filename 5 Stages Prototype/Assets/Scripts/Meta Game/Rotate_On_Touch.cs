@@ -31,11 +31,11 @@ public class Rotate_On_Touch : MonoBehaviour
 
                     if (hitMe.transform.gameObject.name == "Left")
                     {
-                        Planet.transform.Rotate(Vector3.up, rotSpeed);
+                        Planet.transform.Rotate(Vector3.up, -rotSpeed);
                     }
                     else if (hitMe.transform.gameObject.name == "Right")
                     {
-                        Planet.transform.Rotate(Vector3.up, -rotSpeed);
+                        Planet.transform.Rotate(Vector3.up, rotSpeed);
                     }
                 }
             }
@@ -53,11 +53,11 @@ public class Rotate_On_Touch : MonoBehaviour
 
                     if (hitMe.transform.gameObject.name == "Left")
                     {
-                        Planet.transform.Rotate(Vector3.up, rotSpeed);
+                        Planet.transform.Rotate(Vector3.up, -rotSpeed);
                     }
                     else if (hitMe.transform.gameObject.name == "Right")
                     {
-                        Planet.transform.Rotate(Vector3.up, -rotSpeed);
+                        Planet.transform.Rotate(Vector3.up, rotSpeed);
                     }
 
                 }
