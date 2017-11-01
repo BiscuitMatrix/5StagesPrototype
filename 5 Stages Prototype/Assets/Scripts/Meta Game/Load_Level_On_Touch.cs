@@ -6,13 +6,6 @@ using UnityEngine.SceneManagement;
 public class Load_Level_On_Touch : MonoBehaviour
 {
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (SystemInfo.deviceType == DeviceType.Handheld)
@@ -26,22 +19,33 @@ public class Load_Level_On_Touch : MonoBehaviour
                 {
                     Debug.Log("Hit" + hitMe.transform.gameObject.name);
 
-                    if(hitMe.transform.gameObject.name == "Planet/Spring")
+                    if(hitMe.transform.gameObject.name == "Spring")
                     {
-                        SceneManager.LoadScene("Denial", LoadSceneMode.Additive);                    
+                        SceneManager.UnloadSceneAsync("MetaGame");
+                        SceneManager.LoadScene("Denial", LoadSceneMode.Additive);       //load Denial Level         
                     }
-                    else if (hitMe.transform.gameObject.name == "Planet/Summer")
+                    else if (hitMe.transform.gameObject.name == "Summer")
                     {
-                        
+                                //load Anger scene
                     }
-                    else if(hitMe.transform.gameObject.name == "Planet/Autumn")
+                    else if(hitMe.transform.gameObject.name == "Autumn")
                     {
-                       
+                                //load Bargaining scene     
                     }
-                    else if(hitMe.transform.gameObject.name == "Planet/Winter")
+                    else if(hitMe.transform.gameObject.name == "Winter")
                     {
-                        
+                                //load Depression scene
                     }
+                    else if (hitMe.transform.gameObject.name == "Hot Air Balloon")
+                    {
+                                // Load acceptance scene
+                    }
+                    else if(hitMe.transform.gameObject.name == "Shop")
+                    {
+                                //rotate camera to shop OR Load shop scene
+                    }
+
+                    
                 }
             }
         }
@@ -56,21 +60,30 @@ public class Load_Level_On_Touch : MonoBehaviour
                 {
                     Debug.Log("Hit" + hitMe.transform.gameObject.name);
 
-                    if (hitMe.transform.gameObject.name == "Planet/Spring")
+                    if (hitMe.transform.gameObject.name == "Spring")
                     {
-                        SceneManager.LoadScene("Denial", LoadSceneMode.Additive);
+                        SceneManager.UnloadSceneAsync("MetaGame");
+                        SceneManager.LoadScene("Denial", LoadSceneMode.Additive);       //load Denial Level         
                     }
-                    else if (hitMe.transform.gameObject.name == "Planet/Summer")
+                    else if (hitMe.transform.gameObject.name == "Summer")
                     {
-
+                        //load Anger scene
                     }
-                    else if (hitMe.transform.gameObject.name == "Planet/Autumn")
+                    else if (hitMe.transform.gameObject.name == "Autumn")
                     {
-
+                        //load Bargaining scene     
                     }
-                    else if (hitMe.transform.gameObject.name == "Planet/Winter")
+                    else if (hitMe.transform.gameObject.name == "Winter")
                     {
-
+                        //load Depression scene
+                    }
+                    else if (hitMe.transform.gameObject.name == "Hot Air Balloon")
+                    {
+                        // Load acceptance scene
+                    }
+                    else if (hitMe.transform.gameObject.name == "Shop")
+                    {
+                        //rotate camera to shop OR Load shop scene
                     }
                 }
             }
