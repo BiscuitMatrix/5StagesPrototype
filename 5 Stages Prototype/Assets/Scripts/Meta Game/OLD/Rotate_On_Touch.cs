@@ -9,12 +9,6 @@ public class Rotate_On_Touch : MonoBehaviour
 
     public float rotSpeed;
 
-	// Use this for initialization
-	void Start ()
-    {
-		
-	}
-	
 	// Update is called once per frame
 	void Update ()
     {
@@ -27,8 +21,6 @@ public class Rotate_On_Touch : MonoBehaviour
 
                 if (hit)
                 {
-                    Debug.Log("Hit" + hitMe.transform.gameObject.name);
-
                     if (hitMe.transform.gameObject.name == "Left")
                     {
                         Planet.transform.Rotate(Vector3.up, -rotSpeed);
@@ -49,8 +41,6 @@ public class Rotate_On_Touch : MonoBehaviour
 
                 if (hit)
                 {
-                    Debug.Log("Hit" + hitMe.transform.gameObject.name);
-
                     if (hitMe.transform.gameObject.name == "Left")
                     {
                         Planet.transform.Rotate(Vector3.up, -rotSpeed);

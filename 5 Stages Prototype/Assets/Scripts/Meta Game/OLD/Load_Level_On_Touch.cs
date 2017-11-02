@@ -21,24 +21,29 @@ public class Load_Level_On_Touch : MonoBehaviour
 
                     if(hitMe.transform.gameObject.name == "Spring")
                     {
-                        SceneManager.UnloadSceneAsync("MetaGame");
+                        SceneManager.UnloadScene("MetaGame");
+                       // StartCoroutine(UnloadAsync());
                         SceneManager.LoadScene("Denial", LoadSceneMode.Additive);       //load Denial Level         
                     }
                     else if (hitMe.transform.gameObject.name == "Summer")
                     {
-                                //load Anger scene
+                        StartCoroutine(UnloadAsync());
+                        SceneManager.LoadScene("Anger", LoadSceneMode.Additive);        //load Anger scene
                     }
                     else if(hitMe.transform.gameObject.name == "Autumn")
                     {
-                                //load Bargaining scene     
+                        StartCoroutine(UnloadAsync());
+                        SceneManager.LoadScene("Bargaining", LoadSceneMode.Additive);        //load Bargaining scene     
                     }
                     else if(hitMe.transform.gameObject.name == "Winter")
                     {
-                                //load Depression scene
+                        StartCoroutine(UnloadAsync());
+                        SceneManager.LoadScene("Depression", LoadSceneMode.Additive);        //load Depression scene
                     }
                     else if (hitMe.transform.gameObject.name == "Hot Air Balloon")
                     {
-                                // Load acceptance scene
+                        StartCoroutine(UnloadAsync());
+                        SceneManager.LoadScene("Acceptance", LoadSceneMode.Additive);         // Load acceptance scene
                     }
                     else if(hitMe.transform.gameObject.name == "Shop")
                     {
@@ -62,24 +67,28 @@ public class Load_Level_On_Touch : MonoBehaviour
 
                     if (hitMe.transform.gameObject.name == "Spring")
                     {
-                        SceneManager.UnloadSceneAsync("MetaGame");
-                        SceneManager.LoadScene("Denial", LoadSceneMode.Additive);       //load Denial Level         
+                        SceneManager.UnloadScene("MetaGame");
+                        SceneManager.LoadScene("Denial", LoadSceneMode.Additive);       //load Denial Level     
                     }
                     else if (hitMe.transform.gameObject.name == "Summer")
                     {
-                        //load Anger scene
+                        StartCoroutine(UnloadAsync());
+                        SceneManager.LoadScene("Anger", LoadSceneMode.Additive);        //load Anger scene
                     }
                     else if (hitMe.transform.gameObject.name == "Autumn")
                     {
-                        //load Bargaining scene     
+                        StartCoroutine(UnloadAsync());
+                        SceneManager.LoadScene("Bargaining", LoadSceneMode.Additive);        //load Bargaining scene     
                     }
                     else if (hitMe.transform.gameObject.name == "Winter")
                     {
-                        //load Depression scene
+                        StartCoroutine(UnloadAsync());
+                        SceneManager.LoadScene("Depression", LoadSceneMode.Additive);        //load Depression scene
                     }
                     else if (hitMe.transform.gameObject.name == "Hot Air Balloon")
                     {
-                        // Load acceptance scene
+                        StartCoroutine(UnloadAsync());
+                        SceneManager.LoadScene("Acceptance", LoadSceneMode.Additive);         // Load acceptance scene
                     }
                     else if (hitMe.transform.gameObject.name == "Shop")
                     {
@@ -89,5 +98,14 @@ public class Load_Level_On_Touch : MonoBehaviour
             }
         }
 
+    }
+
+    IEnumerator UnloadAsync()
+    {
+        AsyncOperation Unload = SceneManager.UnloadSceneAsync("MetaGame");
+        while(!Unload.isDone)
+        {
+            yield return null;
+        }
     }
 }
