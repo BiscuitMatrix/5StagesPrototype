@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿//MetaScript was written by Alan Guild
+//The MetaScript is for the Main Menu / Meta Game and contains all the controls and actions for the scene.
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,13 +14,13 @@ public class MetaScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))        //change to Input.TouchCount > 0;
         {
             RaycastHit HitDestination = new RaycastHit();
 
-            bool Hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out HitDestination);
+            bool Hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out HitDestination);      //change Input.mousePosition to Input.GetTouch(0).deltaPosition
 
-            switch (HitDestination.transform.gameObject.name)
+            switch (HitDestination.transform.gameObject.name)       //switch statement
                {
                     case "Left":
                         Planet.transform.Rotate(Vector3.up, -rotSpeed);     //roatate planet left
@@ -28,34 +32,30 @@ public class MetaScript : MonoBehaviour
                         break;
         
                     case "Denial":
-                        SceneManager.UnloadSceneAsync("MetaGame");
                         SceneManager.LoadScene("Denial");       //load Denial Level      
                         break;
 
                     case "Anger":
-                        SceneManager.UnloadSceneAsync("MetaGame");
                         SceneManager.LoadScene("Anger");        //load Anger scene
                         break;
 
                     case "Bargaining":
-                        SceneManager.UnloadSceneAsync("MetaGame");
                         SceneManager.LoadScene("Bargaining");        //load Bargaining scene   
                         break;
 
                     case "Depression":
-                        SceneManager.UnloadSceneAsync("MetaGame");
                         SceneManager.LoadScene("Depression");        //load Depression scene
                         break;
 
                     case "Acceptance":
-                        SceneManager.UnloadSceneAsync("MetaGame");
                         SceneManager.LoadScene("Acceptance");         // Load acceptance scene
                         break;
 
                     case "Shop":
-                       
                         break;
 
+                    case "Back":
+                        break;
                 }
             }
         }
