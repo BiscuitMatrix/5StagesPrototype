@@ -8,8 +8,6 @@ public class MetaScript : MonoBehaviour
     public GameObject Planet;
     public float rotSpeed;
 
-    public bool LoadLevel = false;
-
     void Update()
     {
         if (Input.GetMouseButton(0))
@@ -55,10 +53,13 @@ public class MetaScript : MonoBehaviour
                         break;
 
                     case "Shop":
+                       
                         break;
 
                 }
             }
         }
-    }
+
+    
+}
 

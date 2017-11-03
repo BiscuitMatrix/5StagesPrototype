@@ -415,7 +415,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Planet: {fileID: 2057038373}
   rotSpeed: 2
-  LoadLevel: 0
 --- !u!4 &484698874
 Transform:
   m_ObjectHideFlags: 0
