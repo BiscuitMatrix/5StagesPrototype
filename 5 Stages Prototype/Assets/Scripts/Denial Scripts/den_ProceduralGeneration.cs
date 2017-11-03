@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProceduralGeneration : MonoBehaviour {
+public class den_ProceduralGeneration : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
