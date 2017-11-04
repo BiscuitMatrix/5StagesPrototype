@@ -27,10 +27,10 @@ public class den_PlayerInput : MonoBehaviour
 	{
 		// This is the players 
 		transform.Translate(Vector3.forward * constVel * Time.deltaTime);
-		if (constVel < maxVel) 
-		{
-			constVel += (0.1f * Time.deltaTime);
-		}
+//		if (constVel < maxVel) 
+//		{
+//			constVel += (0.1f * Time.deltaTime);
+//		}
 
 
 		desktopInput();
