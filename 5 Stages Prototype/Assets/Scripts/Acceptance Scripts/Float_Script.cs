@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Float_Script : MonoBehaviour
 {
-    public GameObject hotAirBalloon;
+    public Rigidbody hotAirBalloon;
 
 	// Use this for initialization
 	void Start ()
@@ -15,6 +15,10 @@ public class Float_Script : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		
+		if(Input.GetMouseButtonDown(0))
+        {
+            hotAirBalloon.AddForce(0, 5, 0, ForceMode.VelocityChange); //boost
+            Debug.Log(hotAirBalloon.velocity);
+        }
 	}
 }
