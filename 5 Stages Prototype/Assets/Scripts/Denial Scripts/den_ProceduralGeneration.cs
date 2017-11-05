@@ -6,6 +6,8 @@ using System;
 
 public class den_ProceduralGeneration : MonoBehaviour 
 {
+    public GameObject [] paths = new GameObject[3];
+
 	public int width;
 	public int length;
 
@@ -18,19 +20,13 @@ public class den_ProceduralGeneration : MonoBehaviour
 	// Creates an empty array to represent the path
 	int[,] path;
 
-	// Function Declarations
-	//void generatePath();
-	//void randomFillPath();
-	//void pathRules();
-	//int detectPathSurroundings (int posX, int posY);
-	//void onDrawPath();
 
-
-	// Use this for initialization
 	void Start () 
 	{
 		// Setup how new blocks are going to enter the game
-		generatePath();
+		//generatePath();
+
+
 	}
 	
 	// Update is called once per frame
@@ -43,6 +39,25 @@ public class den_ProceduralGeneration : MonoBehaviour
 		
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
 	void generatePath () 
 	{
 		path = new int[width,length];
@@ -52,8 +67,9 @@ public class den_ProceduralGeneration : MonoBehaviour
 		{
 			pathRules ();
 		}
-	}
+	} // End of Generate Path
 
+    // Sets how the path will be made
 	void randomFillPath()
 	{
 		if (useRandomSeed) 
@@ -64,14 +80,17 @@ public class den_ProceduralGeneration : MonoBehaviour
 		// sets up the pseudo-random number generator
 		System.Random prng = new System.Random (seed.GetHashCode());
 	
-		for (int x = 0; x < width; x++) 
+        // For each 
+		for (int y = 0; y < length; y++) 
 		{
-			for (int y = 0; y < length; y++) 
-			{
+			for (int x = 0; x < width; x++)
+            {
 				// Randomly generates numbers between 0 and 100
 				// Takes the fill percentage value and determines based on that if there is a tile or not.
 				// 1 = Tile		0 = No Tile
 				path [x, y] = (prng.Next (0, 100) < randomFillPercent) ? 1 : 0;
+
+                if (path[x, y] == 1) Instantiate(den_ProcGenPath, new Vector3 (x,y,1), transform.rotation);
 			}
 		}
 	} //  End of randomFillPath
@@ -134,4 +153,5 @@ public class den_ProceduralGeneration : MonoBehaviour
 			}
 		}
 	} // End of onDrawPath
+    */
 }
