@@ -181,15 +181,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 14d9dab6dac1a5f448fec60a31c746f4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.002613686
+      value: -0.0026136863
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 14d9dab6dac1a5f448fec60a31c746f4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.044894315
+      value: 0.04489432
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 14d9dab6dac1a5f448fec60a31c746f4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9972996
+      value: 0.9972997
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 14d9dab6dac1a5f448fec60a31c746f4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -205,7 +205,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 14d9dab6dac1a5f448fec60a31c746f4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.058061425
+      value: -0.05806143
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 14d9dab6dac1a5f448fec60a31c746f4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -292,6 +292,7 @@ GameObject:
   - component: {fileID: 149523982}
   - component: {fileID: 149523981}
   - component: {fileID: 149523980}
+  - component: {fileID: 149523985}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -329,7 +330,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.26384082, g: 0.51009226, b: 0.89705884, a: 0}
+  m_BackGroundColor: {r: 0.29803923, g: 0.29803923, b: 0.29803923, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -369,6 +370,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &149523985
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 149523979}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: e8709256e1482b64fb5bd7e9b5ffa07a, type: 2}
 --- !u!1001 &242274545
 Prefab:
   m_ObjectHideFlags: 0
@@ -1100,8 +1109,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1613217113}
   m_LocalRotation: {x: 0.022927295, y: -0.01692359, z: 0.119102746, w: 0.9924729}
-  m_LocalPosition: {x: -2.87, y: 12.76, z: 29.13}
-  m_LocalScale: {x: 0.704451, y: 0.704451, z: 0.704451}
+  m_LocalPosition: {x: -0.79, y: 4.32, z: 9.76}
+  m_LocalScale: {x: 0.22690338, y: 0.22690338, z: 0.22690338}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
