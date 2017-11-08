@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Bargaining_Level : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public GameObject[] planes;
+    // Use this for initialization
+    void Start () {
 
-        GameObject plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
-        
+          for(int i = 0; i<4; i++)
+        {
+            planes.CreatePrimitive(PrimitiveType.Plane);
+            
+        }
 		
 	}
 	

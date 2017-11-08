@@ -41,21 +41,21 @@ public class Bargaining_Player : MonoBehaviour {
                 StartTime = Time.time;
                 CountTime = 1;
             }
-        }
-            //  if (Input.GetTouch(0).phase == TouchPhase.Ended)
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                RealTime = Time.time - StartTime;
-                CountTime = 0;
 
-                // transform.Translate(Vector3.right * (RealTime * 20) * Time.deltaTime);
-                //  GetComponent<Rigidbody>().velocity = new Vector3(40, 50) * 100 * 50;
-                rb.velocity = new Vector3(2.0f, 7.0f, 0);
-            
+            if (Input.GetTouch(0).phase == TouchPhase.Ended)
+                if (Input.GetKey(KeyCode.UpArrow))
+                {
+                    RealTime = Time.time - StartTime;
+                    CountTime = 0;
 
-        //    }
+                    // transform.Translate(Vector3.right * (RealTime * 20) * Time.deltaTime);
+                    //  GetComponent<Rigidbody>().velocity = new Vector3(40, 50) * 100 * 50;
+                    rb.velocity = new Vector3(0.1f, 0.3f, 0)*RealTime;
+                }
 
-        }
+            }
+
+        
 
     }
 
