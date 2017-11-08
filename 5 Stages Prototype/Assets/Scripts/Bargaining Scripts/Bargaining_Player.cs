@@ -58,5 +58,21 @@ public class Bargaining_Player : MonoBehaviour {
         }
 
     }
+
+    void LateUpdate()
+    {
+      
+
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.name == "Plane1")
+        {
+            // Destroy(col.gameObject);
+            col.gameObject.GetComponent<Rigidbody>().useGravity = true;
+            col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        }
+    }
 }
 
