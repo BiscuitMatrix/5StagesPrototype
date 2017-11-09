@@ -69,27 +69,30 @@ public class Bargaining_Player : MonoBehaviour {
     {
         if (col.gameObject.name == "Plane1")
         {
-            // Destroy(col.gameObject);
-            // StartCoroutine(waitThreeSeconds(col));
+          
             yield return new WaitForSeconds(3);
             col.gameObject.GetComponent<Rigidbody>().useGravity = true;
             col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            //to do - destroy after off screen
+            // Destroy(col.gameObject);
         }
         if (col.gameObject.name == "Plane2")
         {
-            // Destroy(col.gameObject);
-            // StartCoroutine(waitThreeSeconds(col));
+          
             yield return new WaitForSeconds(3);
             col.gameObject.GetComponent<Rigidbody>().useGravity = true;
             col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            //to do - destroy after off screen
+            // Destroy(col.gameObject);
         }
         if (col.gameObject.name == "Plane3")
         {
-            // Destroy(col.gameObject);
-            //StartCoroutine(waitThreeSeconds(col));
+            
             yield return new WaitForSeconds(3);
             col.gameObject.GetComponent<Rigidbody>().useGravity = true;
             col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            //to do - destroy after off screen
+            // Destroy(col.gameObject);
         }
     }
 }
