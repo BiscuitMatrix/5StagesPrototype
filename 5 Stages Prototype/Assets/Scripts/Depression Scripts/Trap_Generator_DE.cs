@@ -10,6 +10,7 @@ public class Trap_Generator_DE : MonoBehaviour {
     public float division_distance;
 
     private float trap_layers;
+    public int min_trap_layers;
     public int max_trap_layers; 
 
     // Use this for initialization
@@ -25,7 +26,7 @@ public class Trap_Generator_DE : MonoBehaviour {
             transform.position = new Vector3(transform.position.x + division_distance, transform.position.y, transform.position.z);
 
             // Pick how many layers it will have and instantiate it
-            switch (Random.Range(1, max_trap_layers)) {
+            switch (Random.Range(min_trap_layers, max_trap_layers)) {
                 case 1:
                     Instantiate(Trap_1_Layer, transform.position, transform.rotation);
                     break;

@@ -21,6 +21,17 @@ using UnityEngine;
                             > Repeat per block (see below - play progression)
                             > Gravity is currently set at -15m/s/s up from default 9.81 to bandaid fix floaty jumps
     
+     <<<< Environment Design >>>>
+        > Icy surface of a lake
+        > Snow on top of ice
+        > Snowy mountains/terrain as background & parallax
+        > 2D-ish view slice in foreground like many 2.5D games
+        > Water under the snow/top ice layer
+        > traps indicated by layers of ice under the player when stuck
+        > Possibility of a dark monster/large shadow threat in the water following under the player?
+        > Stark lighting, if not monotone - desaturated colours
+        > Maybe burst of colour when you break out of a trap?
+
      <<<< Traps >>>>
         > Store procedural traps in list/vector
         > On successful trap break, begin on-screen events
@@ -29,7 +40,9 @@ using UnityEngine;
                                 trap object (flat spot, ice shards pointing up when trapped), trap collider, trap script
      
      <<<< Dos >>>>
-        > platform destructor - same idea as constructor
+        > platform destructor - same idea as constructor - 
+                >> All trap prefab objects have been tagged as Trap, iterate through gameObjects tagged for Trap, 
+                >> check X coordinate and delete any with x < Admiral_Ackbar_DE
         > have no instances of platforms at the start - DONE -> Prefabs bruh
         > procedurally extend "surface" and "floor" planes
         > actually put stuff in Main_DE script! Other than comments!
@@ -66,6 +79,7 @@ using UnityEngine;
         > Thinking more about early/mid/late game - Graeme's difficulty block pacing idea (outlined a little above)
         > mixing up gameplay/progression between sessions etc
      */
+
 public class Main : MonoBehaviour {
 
 	// Use this for initialization
