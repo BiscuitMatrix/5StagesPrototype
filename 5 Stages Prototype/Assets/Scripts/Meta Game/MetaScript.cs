@@ -12,6 +12,17 @@ public class MetaScript : MonoBehaviour
     public GameObject Planet;
     public float rotSpeed;
 
+    private Transform cameraTransform;
+    public Transform lookShop;
+    public Transform lookMain;
+
+    private const float cameraRotSpeed = 0.1f;
+
+    void Start()
+    {
+        cameraTransform = Camera.main.transform;
+    }
+
     void Update()
     {
         if (Input.GetMouseButton(0))        //change to Input.TouchCount > 0;
@@ -52,14 +63,31 @@ public class MetaScript : MonoBehaviour
                         break;
 
                     case "Shop":
+                        rotateToShop();
                         break;
 
                     case "Back":
+                        rotateToMain();
                         break;
-                }
-            }
-        }
+               }
+           }
+       }
 
+    void rotateToShop()
+    {
+       
+    }
+
+    void rotateToMain()
+    {
+        //if (lookMain != null)
+        //{
+        //    while (cameraTransform.rotation != lookMain.rotation)
+        //    {
+        //        cameraTransform.rotation = Quaternion.Slerp(cameraTransform.rotation, lookMain.rotation, cameraRotSpeed * Time.deltaTime);
+        //    }
+        //}
+    }
     
 }
 
