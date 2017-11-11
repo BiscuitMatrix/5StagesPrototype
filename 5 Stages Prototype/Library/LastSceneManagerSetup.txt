@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Acceptance.unity
+- path: Assets/Scenes/MetaGame.unity
   isLoaded: 1
   isActive: 1
