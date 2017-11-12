@@ -6,22 +6,35 @@ public class Float_Script : MonoBehaviour
 {
     public Rigidbody hotAirBalloon;
 
-    //public GameObject fuelBar;
-
-    //private float fuel = 100.0f;
+    private bool isBoost;
+    private bool isGrounded = true;
 	
 	// Update is called once per frame
 	void Update ()
     {
-        //while (fuelBar.transform.position != new Vector3(0.0f, -0.5f, 0.0f))
-        //{
-        //    fuelBar.transform.position = new Vector3(0.0f, fuelBar.transform.position.y - 1, 0);
-        //}
+        if (isGrounded)     //initial constant take off speed
+        {
+            isGrounded = false;
+            hotAirBalloon.AddForce(0.0f, 0.5f, 0.0f, ForceMode.VelocityChange);
+        }
 
 		if(Input.GetMouseButtonDown(0))
         {
-            hotAirBalloon.AddForce(0, 5, 0, ForceMode.VelocityChange); //boost
-            Debug.Log(hotAirBalloon.velocity);
+            BalloonBoosts();
         }
-	}
+
+        //if(hotAirBalloon.velocity.y > 0.0 && !isBoost)        
+        //{
+        //    hotAirBalloon.AddForce(3 * Physics.gravity);
+        //}
+
+        Debug.Log(hotAirBalloon.velocity);
+    }
+
+    void BalloonBoosts()
+    {
+        isBoost = true;
+        hotAirBalloon.AddForce(0, 5, 0, ForceMode.VelocityChange); //boost
+        isBoost = false;
+    }
 }

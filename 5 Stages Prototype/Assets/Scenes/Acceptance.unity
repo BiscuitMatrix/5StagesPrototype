@@ -365,6 +365,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ToFollow: {fileID: 1356150985}
   Follower: {fileID: 1136780865}
+  offsetX: 0.5
+  offsetY: 1.5
+  offsetZ: -5
 --- !u!1 &935230431 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 21930ebe763a4f24ea2a39e0508c9d0f, type: 3}
@@ -469,7 +472,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1136780865}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.27905214, y: 1.5, z: 10.584589}
+  m_LocalPosition: {x: 0, y: 1.5, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1460924759}
@@ -599,7 +602,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1356150985}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 15}
+  m_LocalPosition: {x: -0.5, y: 0, z: 15}
   m_LocalScale: {x: 0.76036006, y: 0.76036006, z: 0.76036006}
   m_Children:
   - {fileID: 1089381211}

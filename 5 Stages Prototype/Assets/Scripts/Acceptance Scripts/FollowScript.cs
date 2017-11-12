@@ -7,6 +7,10 @@ public class FollowScript : MonoBehaviour
     public GameObject ToFollow;
     public GameObject Follower;
 
+    public float offsetX;
+    public float offsetY;
+    public float offsetZ;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -16,6 +20,6 @@ public class FollowScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        Follower.transform.position = new Vector3(Follower.transform.position.x, ToFollow.transform.position.y + 1.5f, Follower.transform.position.z);
+        Follower.transform.position = new Vector3(ToFollow.transform.position.x + offsetX, ToFollow.transform.position.y + offsetY, ToFollow.transform.position.z + offsetZ);
 	}
 }
