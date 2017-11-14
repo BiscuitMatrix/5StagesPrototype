@@ -11,8 +11,12 @@ public class FollowScript : MonoBehaviour
     public float offsetY;
     public float offsetZ;
 
-	// Use this for initialization
-	void Start ()
+    public bool freezeX;
+    public bool freezeY;
+    public bool freezeZ;
+
+    // Use this for initialization
+    void Start ()
     {
 		
 	}
@@ -20,6 +24,34 @@ public class FollowScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        Follower.transform.position = new Vector3(ToFollow.transform.position.x + offsetX, ToFollow.transform.position.y + offsetY, ToFollow.transform.position.z + offsetZ);
+
+        if (!freezeX && !freezeY && !freezeZ)       //freeze none
+        {
+            Follower.transform.position = new Vector3(ToFollow.transform.position.x + offsetX, ToFollow.transform.position.y + offsetY, ToFollow.transform.position.z + offsetZ);
+        }
+        else if ( freezeX && !freezeY && !freezeZ)      //freeze X
+        {
+            Follower.transform.position = new Vector3(Follower.transform.position.x, ToFollow.transform.position.y + offsetY, ToFollow.transform.position.z + offsetZ);
+        }
+        else if(!freezeX && freezeY && !freezeZ)        //freeze Y
+        {
+            Follower.transform.position = new Vector3(ToFollow.transform.position.x + offsetX, Follower.transform.position.y, ToFollow.transform.position.z + offsetZ);
+        }
+        else if(!freezeX && !freezeY && freezeZ)        //freeze Z
+        {
+            Follower.transform.position = new Vector3(ToFollow.transform.position.x + offsetX, ToFollow.transform.position.y + offsetY, Follower.transform.position.z);
+        }
+        else if(freezeX && freezeY && !freezeZ)     //freeze X & Y
+        {
+            Follower.transform.position = new Vector3(Follower.transform.position.x, Follower.transform.position.y, ToFollow.transform.position.z + offsetZ);
+        }
+        else if(freezeX && !freezeY && freezeZ)     //freeze X & Z
+        {
+            Follower.transform.position = new Vector3(Follower.transform.position.x, ToFollow.transform.position.y + offsetY, Follower.transform.position.z);
+        }
+        else if(!freezeX && freezeY && freezeZ)     //freeze Y & Z
+        {
+            Follower.transform.position = new Vector3(ToFollow.transform.position.x + offsetX, Follower.transform.position.y, Follower.transform.position.z);
+        }
 	}
 }
