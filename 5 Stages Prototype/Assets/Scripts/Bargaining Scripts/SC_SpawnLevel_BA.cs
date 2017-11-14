@@ -9,6 +9,7 @@ public class SC_SpawnLevel_BA : MonoBehaviour {
     // Use this for initialization
     void Start () {
        
+        
       Instantiate(leaf[0], new Vector3(5.0f,1.0f,23.0f), Quaternion.identity);
         Instantiate(leaf[1], new Vector3(11.0f, 1.0f, 23.0f), Quaternion.identity);
     }

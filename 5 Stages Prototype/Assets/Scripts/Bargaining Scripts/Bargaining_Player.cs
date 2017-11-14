@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Bargaining_Player : MonoBehaviour {
 
-    public SC_Score_BA scoring;
+    
     public float turnSpeed = 50f;
     public float moveSpeed = 5.0f;
     public Rigidbody rb;
@@ -61,8 +61,9 @@ public class Bargaining_Player : MonoBehaviour {
 
             //}
 
-        if(rb.position.y < -1.0f)
+        if(rb.position.y < -4.0f)
         {
+            //TODO die and reset game
             SceneManager.LoadScene("Bargaining");
         }
         
@@ -72,43 +73,6 @@ public class Bargaining_Player : MonoBehaviour {
 
 
 
-    IEnumerator OnCollisionEnter(Collision col)
-    {
-       
-        scoring.getName(col.gameObject.name);
-        switch (col.gameObject.name)
-        {
-
-            case "Plane1(Clone)":
-
-                scoring.ScoreUpdate();
-                yield return new WaitForSeconds(3);
-                col.gameObject.GetComponent<Rigidbody>().useGravity = true;
-                col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-                //to do - destroy after off screen
-                // Destroy(col.gameObject);
-                break;
-
-            case "Plane2":
-
-                scoring.ScoreUpdate();
-                yield return new WaitForSeconds(3);
-                col.gameObject.GetComponent<Rigidbody>().useGravity = true;
-                col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-                //to do - destroy after off screen
-                // Destroy(col.gameObject);
-                break;
-
-            case "Plane3":
-
-                scoring.ScoreUpdate();
-                yield return new WaitForSeconds(3);
-                col.gameObject.GetComponent<Rigidbody>().useGravity = true;
-                col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-                //to do - destroy after off screen
-                // Destroy(col.gameObject);
-                break;
-        }
-    }
+   
 }
 
