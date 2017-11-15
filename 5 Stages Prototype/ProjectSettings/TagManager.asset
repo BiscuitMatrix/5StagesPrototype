@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Trap
+  - Ground
+  - Lightning
+  - Breakable
   layers:
   - Default
   - TransparentFX
