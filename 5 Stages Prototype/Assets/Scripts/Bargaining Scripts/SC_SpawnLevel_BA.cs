@@ -13,12 +13,7 @@ public class SC_SpawnLevel_BA : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        maxY = 33;
-        lastLeafPosition = new Vector3(15.0f, 1.0f, 23.0f);
-        for (int x = 0; x < 10; x++)
-        {
-            UpdateLevel();
-        }
+        SetUp();
         
     }
 
@@ -28,6 +23,15 @@ public class SC_SpawnLevel_BA : MonoBehaviour {
         
     }
 
+    void SetUp()
+    {
+        maxY = 11;
+        lastLeafPosition = new Vector3(15.0f, 1.0f, 23.0f);
+        for (int x = 0; x < 10; x++)
+        {
+            UpdateLevel();
+        }
+    }
     public void UpdateLevel()
     {
         switch(Random.Range(0,3))

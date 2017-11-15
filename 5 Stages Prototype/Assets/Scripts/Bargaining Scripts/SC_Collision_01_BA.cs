@@ -16,6 +16,7 @@ public class SC_Collision_01_BA : MonoBehaviour {
 	void Update () {
 		
 	}
+
     IEnumerator OnCollisionEnter(Collision col)
     {
 
@@ -23,7 +24,7 @@ public class SC_Collision_01_BA : MonoBehaviour {
         switch (col.gameObject.name)
         {
             
-            case "Plane1(Clone)":
+            case "leaf_1(Clone)":
 
                 scoring.ScoreUpdate();
                 spawn.UpdateLevel();
