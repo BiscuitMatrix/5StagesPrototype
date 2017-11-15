@@ -5,6 +5,8 @@ using UnityEngine;
 public class SC_Collision_01_BA : MonoBehaviour {
 
     public SC_Score_BA scoring;
+    public SC_SpawnLevel_BA spawn;
+    
     // Use this for initialization
     void Start () {
 		
@@ -17,19 +19,20 @@ public class SC_Collision_01_BA : MonoBehaviour {
     IEnumerator OnCollisionEnter(Collision col)
     {
 
-        scoring.getName(col.gameObject.name);
+       // scoring.getName(col.gameObject.name);
         switch (col.gameObject.name)
         {
-
-            case "SM_leaf_01_BA(Clone)":
+            
+            case "Plane1(Clone)":
 
                 scoring.ScoreUpdate();
-                yield return new WaitForSeconds(3);
+                spawn.UpdateLevel();
+                yield return new WaitForSeconds(1.5f);
                 col.gameObject.GetComponent<Rigidbody>().useGravity = true;
                 col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                yield return new WaitForSeconds(2);
+                Destroy(col.gameObject);
                 //to do - destroy after off screen
-                if (col.gameObject.GetComponent<Rigidbody>().position.y < -3.0f)
-                    Destroy(col.gameObject);
                 break;
 
             case "SM_leaf_02_BA(Clone)":
@@ -41,6 +44,7 @@ public class SC_Collision_01_BA : MonoBehaviour {
                 //to do - destroy after off screen
                 if (col.gameObject.GetComponent<Rigidbody>().position.y < -3.0f)
                     Destroy(col.gameObject);
+                spawn.UpdateLevel();
                 break;
 
             case "Plane3":
@@ -50,7 +54,9 @@ public class SC_Collision_01_BA : MonoBehaviour {
                 col.gameObject.GetComponent<Rigidbody>().useGravity = true;
                 col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 //to do - destroy after off screen
-                // Destroy(col.gameObject);
+                if (col.gameObject.GetComponent<Rigidbody>().position.y < -3.0f)
+                    Destroy(col.gameObject);
+                spawn.UpdateLevel();
                 break;
         }
     }

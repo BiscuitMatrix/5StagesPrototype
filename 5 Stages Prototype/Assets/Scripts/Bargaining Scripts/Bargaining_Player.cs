@@ -13,6 +13,7 @@ public class Bargaining_Player : MonoBehaviour {
     float StartTime = 0;
     float RealTime = 0;
     int CountTime = 0;
+    private float booster;
 
 
 
@@ -20,6 +21,7 @@ public class Bargaining_Player : MonoBehaviour {
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        booster = 110.0f;
        
 
     }
@@ -31,7 +33,10 @@ public class Bargaining_Player : MonoBehaviour {
 
     void Update()
     {
-
+        if(booster<110 && (Input.GetTouch(0).phase != TouchPhase.Stationary))
+        {
+            booster = booster + 2.5f;
+        }
         //Touch myTouch = Input.GetTouch(0);
 
         //Touch[] myTouches = Input.touches;
@@ -40,26 +45,27 @@ public class Bargaining_Player : MonoBehaviour {
         //    transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
         //}
 
-      //  if (Input.touchCount > 0)
-       // {
+        if (Input.touchCount > 0)
+        {
             //if (Input.GetTouch(0).phase == TouchPhase.Began)
             //{
             //    StartTime = Time.time;
             //    CountTime = 1;
             //}
 
-           // if (Input.GetTouch(0).phase == TouchPhase.Ended)
-                if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetTouch(0).phase == TouchPhase.Stationary&& booster>0)
+               // if (Input.GetKey(KeyCode.UpArrow))
                 {
-                    RealTime = Time.time - StartTime;
-                    CountTime = 0;
+                    //RealTime = Time.time - StartTime;
+                    //CountTime = 0;
 
                     // transform.Translate(Vector3.right * (RealTime * 20) * Time.deltaTime);
                     //  GetComponent<Rigidbody>().velocity = new Vector3(40, 50) * 100 * 50;
-                    rb.velocity = new Vector3(3f, 4f, 0f);
+                    rb.velocity = new Vector3(3.9f, 4.3f, 0f);
+                booster = booster - 0.4f;
                 }
 
-            //}
+            }
 
         if(rb.position.y < -4.0f)
         {
