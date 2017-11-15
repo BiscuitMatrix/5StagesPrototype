@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408e84b839b74534597aff2e20e3485d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  break_Speed: 1
+  break_Speed: 0
 --- !u!1 &1186114098
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,7 +555,7 @@ MonoBehaviour:
   powerup: {fileID: 384246238}
   minPlaceDist: 10
   maxPlaceDist: 20
-  strikeTimer: 4
+  strikeTimer: 3
   strikeLength: 1
 --- !u!4 &1186114100
 Transform:
@@ -666,8 +666,8 @@ GameObject:
   - component: {fileID: 1926599540}
   - component: {fileID: 1926599539}
   - component: {fileID: 1926599538}
-  - component: {fileID: 1926599537}
   - component: {fileID: 1926599542}
+  - component: {fileID: 1926599537}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1000
   rb: {fileID: 0}
-  bonusSpeed: 1.05
+  bonusSpeed: 10
   velocity: 0
 --- !u!23 &1926599538
 MeshRenderer:
