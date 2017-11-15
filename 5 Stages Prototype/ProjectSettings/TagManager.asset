@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Lightning
   - Breakable
+  - Clone
   layers:
   - Default
   - TransparentFX

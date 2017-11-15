@@ -12,8 +12,7 @@ public class Controller : MonoBehaviour
     public float bonusSpeed = 10;
     public float velocity;
 
-    GameObject wall;
-    private WallBreakScript wallBreakScript;
+
     private Vector3 lastVelocity;
 
 
@@ -75,10 +74,8 @@ public class Controller : MonoBehaviour
         // If colliding with a Breakable object
         if(col.gameObject.tag == "Breakable")
         {
-            wall = col.gameObject;
-            wallBreakScript = wall.GetComponent<WallBreakScript>();
             // Compare the player's speed against the break speed required for the wall
-            if (lastVelocity.magnitude > wallBreakScript.break_Speed)
+            if (lastVelocity.sqrMagnitude > col.gameObject.GetComponent<WallBreakScript>().break_Speed)
             {
                 // If player is fast enough, destroy the wall
                 Destroy(col.gameObject);
@@ -91,7 +88,7 @@ public class Controller : MonoBehaviour
         }
         if (col.gameObject.tag == "Goal")
         {
-            if (lastVelocity.magnitude > wallBreakScript.break_Speed)
+            if (lastVelocity.sqrMagnitude > col.gameObject.GetComponent<WallBreakScript>().break_Speed)
             {
                 SceneManager.LoadScene("main");
             }
