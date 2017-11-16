@@ -6,6 +6,7 @@ public class SC_Collision_01_BA : MonoBehaviour {
 
     public SC_Score_BA scoring;
     public SC_SpawnLevel_BA spawn;
+    private GameObject lastHit;
     
     // Use this for initialization
     void Start () {
@@ -26,6 +27,8 @@ public class SC_Collision_01_BA : MonoBehaviour {
             
             case "leaf_1(Clone)":
 
+                if (col.gameObject != null && col.gameObject != lastHit)
+                    lastHit = col.gameObject;
                 scoring.ScoreUpdate();
                 spawn.UpdateLevel();
                 yield return new WaitForSeconds(1.5f);
@@ -58,6 +61,15 @@ public class SC_Collision_01_BA : MonoBehaviour {
                 if (col.gameObject.GetComponent<Rigidbody>().position.y < -3.0f)
                     Destroy(col.gameObject);
                 spawn.UpdateLevel();
+                break;
+            case "Sphere(Clone)":
+
+                if (col.gameObject != null && col.gameObject != lastHit)
+                lastHit = col.gameObject;
+                scoring.ScoreUpdate();
+                Destroy(col.gameObject);
+                spawn.PowerUps();
+                //to do - destroy after off screen
                 break;
         }
     }

@@ -15,8 +15,8 @@ public class Bargaining_Player : MonoBehaviour {
     private bool thrust;
     private float direction;
     private bool left;
-    private bool up;
     private bool right;
+    private float screenCenterX;
 
 
 
@@ -88,41 +88,37 @@ public class Bargaining_Player : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         booster = 100.0f;
         thrust = false;
-        up = false;
         left = false;
         right = false;
+        screenCenterX = Screen.width * 0.5f;
     }
    
     void GetDirection()
     {
-        if(direction < rb.position.x)
+        if(direction < screenCenterX)
         {
+            right = false;
             left = true;
         }
-        else if(direction> rb.position.x)
+        else if(direction> screenCenterX)
         {
+            left = false;
             right = true;
         }
-        else
-        {
-            up = true;
-        }
+  
     }
 
     void MovePlayer()
     {
         if(left == true)
         {
-            rb.velocity = new Vector3(-2.7f, 4.3f, 0f);
+            rb.velocity = new Vector3(-2.3f, 3.3f, 0f);
         }
         else if(right == true)
         {
-            rb.velocity = new Vector3(2.7f, 4.3f, 0f);
+            rb.velocity = new Vector3(2.3f, 3.3f, 0f);
         }
-        else if(up == true)
-        {
-            rb.velocity = new Vector3(0.0f, 4.3f, 0f);
-        }
+
     }
 }
 
