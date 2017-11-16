@@ -27,7 +27,7 @@ public class SC_SpawnLevel_BA : MonoBehaviour {
     void SetUp()
     {
         maxY = 5.4f;
-        lastLeafPosition = new Vector3(15.0f, 1.0f, 23.0f);
+        lastLeafPosition = new Vector3(15.0f, 1.0f, 26.0f);
         for (int x = 0; x < 10; x++)
         {
             UpdateLevel();
