@@ -7,14 +7,16 @@ public class den_ProceduralGeneration : MonoBehaviour
 	//Holds the different colors for the path
 	public GameObject [] paths = new GameObject[4];
 	public GameObject player;
+	public int renderDistance;
 	int counter = 70;
     float playerZPos;
+	//static float objectOffset = (/* get the z scale of the object */ / 2) - 0.5f;
 
     // Use this for initialization
     void Start ()
 	{
         // Setup an initial path for the player
-		for (int i = 0; i < 70; i++)
+		for (int i = 0; i < renderDistance; i++)
 		{
 			for (float width = 0; width < 4; width++)
 			{
@@ -23,12 +25,10 @@ public class den_ProceduralGeneration : MonoBehaviour
 				Instantiate(paths[holder], new Vector3(width, 0.0f, i), Quaternion.identity);
             }
 		}
+		Debug.Break ();
 	}
 
-	// Update is called once per frame
-	/// <summary>
-    /// 
-    /// </summary>
+
     void Update ()
 	{
         playerZPos = player.GetComponent<Rigidbody>().transform.position.z;
