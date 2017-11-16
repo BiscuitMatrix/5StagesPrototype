@@ -12,7 +12,7 @@ public class SC_Score_BA : MonoBehaviour {
 	void Start () {
 
         scoreInt = 0;
-        score.text = scoreInt.ToString();
+        score.text = "Score:" + scoreInt.ToString();
 	}
 	
 	// Update is called once per frame
@@ -25,7 +25,7 @@ public class SC_Score_BA : MonoBehaviour {
         scoreUpdate = scoreInt;
         scoreUpdate = scoreUpdate + 1;
         scoreInt = scoreUpdate;
-        score.text = scoreUpdate.ToString();
+        score.text = "Score:" + scoreUpdate.ToString();
     }
     public void getName(string name)
     {

@@ -39,12 +39,19 @@ public class Bargaining_Player : MonoBehaviour {
         Die();
      
 
-        boosterValue.text = booster.ToString(); ;
+        boosterValue.text = "Boost:" + booster.ToString(); ;
 
     }
 
     void Control()
     {
+         if (Input.GetKey(KeyCode.UpArrow))
+        {
+            thrust = true;
+            right = true;
+            MovePlayer();
+        }
+
         if (thrust == false && booster < 100)
         {
             booster = booster + 1.5f;
@@ -63,7 +70,7 @@ public class Bargaining_Player : MonoBehaviour {
 
             if (thrust == true && booster > 0)
             {
-                // if (Input.GetKey(KeyCode.UpArrow))
+               
 
                      GetDirection();
                      MovePlayer();

@@ -25,51 +25,80 @@ public class SC_Collision_01_BA : MonoBehaviour {
         switch (col.gameObject.name)
         {
             
-            case "leaf_1(Clone)":
+            case "SM_leaf_01_BA(Clone)":
 
                 if (col.gameObject != null && col.gameObject != lastHit)
+                {
                     lastHit = col.gameObject;
-                scoring.ScoreUpdate();
-                spawn.UpdateLevel();
-                yield return new WaitForSeconds(1.5f);
-                col.gameObject.GetComponent<Rigidbody>().useGravity = true;
-                col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-                yield return new WaitForSeconds(2);
-                Destroy(col.gameObject);
-                //to do - destroy after off screen
+                    scoring.ScoreUpdate();
+                    spawn.UpdateLevel();
+                    yield return new WaitForSeconds(1.5f);
+                    col.gameObject.GetComponent<Rigidbody>().useGravity = true;
+                    col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                    yield return new WaitForSeconds(2);
+                    Destroy(col.gameObject);
+                    //to do - destroy after off screen
+                }
                 break;
 
             case "SM_leaf_02_BA(Clone)":
 
-                scoring.ScoreUpdate();
-                yield return new WaitForSeconds(3);
-                col.gameObject.GetComponent<Rigidbody>().useGravity = true;
-                col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-                //to do - destroy after off screen
-                if (col.gameObject.GetComponent<Rigidbody>().position.y < -3.0f)
+                if (col.gameObject != null && col.gameObject != lastHit)
+                {
+                    lastHit = col.gameObject;
+                    scoring.ScoreUpdate();
+                    spawn.UpdateLevel();
+                    yield return new WaitForSeconds(1.5f);
+                    col.gameObject.GetComponent<Rigidbody>().useGravity = true;
+                    col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                    yield return new WaitForSeconds(2);
                     Destroy(col.gameObject);
-                spawn.UpdateLevel();
+                    //to do - destroy after off screen
+                }
                 break;
 
-            case "Plane3":
+            case "SM_leaf_03_BA(Clone)":
 
-                scoring.ScoreUpdate();
-                yield return new WaitForSeconds(3);
-                col.gameObject.GetComponent<Rigidbody>().useGravity = true;
-                col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-                //to do - destroy after off screen
-                if (col.gameObject.GetComponent<Rigidbody>().position.y < -3.0f)
+                if (col.gameObject != null && col.gameObject != lastHit)
+                {
+                    lastHit = col.gameObject;
+                    scoring.ScoreUpdate();
+                    spawn.UpdateLevel();
+                    yield return new WaitForSeconds(1.5f);
+                    col.gameObject.GetComponent<Rigidbody>().useGravity = true;
+                    col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                    yield return new WaitForSeconds(2);
                     Destroy(col.gameObject);
-                spawn.UpdateLevel();
+                    //to do - destroy after off screen
+                }
                 break;
+
+            case "SM_leaf_04_BA(Clone)":
+
+                if (col.gameObject != null && col.gameObject != lastHit)
+                {
+                    lastHit = col.gameObject;
+                    scoring.ScoreUpdate();
+                    spawn.UpdateLevel();
+                    yield return new WaitForSeconds(1.5f);
+                    col.gameObject.GetComponent<Rigidbody>().useGravity = true;
+                    col.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                    yield return new WaitForSeconds(2);
+                    Destroy(col.gameObject);
+                    //to do - destroy after off screen
+                }
+                break;
+
             case "Sphere(Clone)":
 
                 if (col.gameObject != null && col.gameObject != lastHit)
-                lastHit = col.gameObject;
-                scoring.ScoreUpdate();
-                Destroy(col.gameObject);
-                spawn.PowerUps();
-                //to do - destroy after off screen
+                {
+                    lastHit = col.gameObject;
+                    scoring.ScoreUpdate();
+                    Destroy(col.gameObject);
+                    spawn.PowerUps();
+                    //to do - destroy after off screen
+                }
                 break;
         }
     }
