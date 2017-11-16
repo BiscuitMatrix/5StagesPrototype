@@ -2,9 +2,7 @@
 // This script applys the physics to the Hot Air Balloon and also works with the state of the stage.
 
 //To Do
-//-Case statement
-//-use when user taps to decide on what boost
-//-power bar
+//- FIX if fuel hits 0 make balloon go down
 
 using System.Collections;
 using System.Collections.Generic;
@@ -17,24 +15,29 @@ public class Float_Script : MonoBehaviour
     public Transform balloonTransform;
     public Transform planetTransform;
 
-    private bool isBoost = false;
-    private bool isGrounded = true;
+    private bool isBoost = false;       //bool for if a boost is currently being applied
+    private bool isGrounded = true;     //bool to say if Balloon has Taken off
 
-    private bool fingerOnScreen = false;
+    private bool fingerOnScreen = false;        //bool to say if there is currently a touch
+
+    private bool isCoRoutineActive = false;     //bool to check if co-routines are active
 
     public int noOfCanisters;
 
-    private bool isCoRoutineActive = false;
+    //UI Variables
+
+    public Text cans;
 
     //power bar variables
     public Slider PowerSlider;
     private Slider powerBar;
-    private float fuelLoss = 1.0f;
+    private float fuelLoss = 2.0f;
     private float boostOnTouch;
 
 
     void Start()
     {
+        //Power Bar
         powerBar = PowerSlider;     
 
         powerBar.minValue = 0f;
@@ -43,11 +46,14 @@ public class Float_Script : MonoBehaviour
     }
 
 	// Update is called once per frame
-	void Update ()
+	private void Update ()
     {
+        //UI
+        cans.text = "Cans: " + noOfCanisters.ToString();
 
-        if (isGrounded  && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)      //takeoff
+        if (isGrounded  && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)      //takeoff
         {
+            fingerOnScreen = true;
             noOfCanisters += 1;
             TakeOff();
         }
@@ -58,9 +64,6 @@ public class Float_Script : MonoBehaviour
             PowerBar();
         }
 
-      //check if reached planet or not
-
-        Debug.Log(hotAirBalloon.velocity);
     }
 
     
@@ -73,11 +76,15 @@ public class Float_Script : MonoBehaviour
         powerBar.value -= fuelLoss * Time.deltaTime;
         if (fingerOnScreen == false)
         {
-            if (Input.touchCount > 0 && noOfCanisters > 0)       //if user touch and noOfCanisters is not empty
+            fingerOnScreen = true;
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)       //if user touch and noOfCanisters is not empty
             {
-                isCoRoutineActive = true;
-                StartCoroutine(ApplyBoost());
-                fingerOnScreen = true;
+                if (noOfCanisters > 0)
+                {
+                    isCoRoutineActive = true;
+                    StartCoroutine(ApplyBoost());
+                }
+                
             }
             else if (noOfCanisters == 0)
             {
@@ -86,7 +93,7 @@ public class Float_Script : MonoBehaviour
             }
         }
 
-        if (Input.touchCount == 0)
+        if (Input.touchCount == 0 )
         {
             fingerOnScreen = false;
         }
@@ -101,37 +108,46 @@ public class Float_Script : MonoBehaviour
             case 0:     //Bad Boost
                 isBoost = true;
                 hotAirBalloon.AddForce(0.0f, 1.5f, 0.0f, ForceMode.Impulse);
-
                 noOfCanisters--;
                 isBoost = false;
+
+                Debug.Log("Bad");
                 break;
 
             case 1:     //Ok Boost
                 isBoost = true;
                 hotAirBalloon.AddForce(0.0f, 2.5f, 0.0f, ForceMode.Impulse);
-
                 noOfCanisters--;
                 isBoost = false;
+
+                Debug.Log("Ok");
                 break;
 
             case 2:     //Perfect Boost
                 isBoost = true;
                 hotAirBalloon.AddForce(0.0f, 5.0f, 0.0f, ForceMode.Impulse);
-
                 noOfCanisters--;
                 isBoost = false;
+
+                Debug.Log("Perfect");
                 break;
 
-            case 3:     //Tank Empty
+            case 3:     //Fuel Leak, emergency Landing
                 isBoost = true;
                 noOfCanisters = 0;
                 Boosts(4);
                 isBoost = false;
+
+                Debug.Log("Fuel Leak!");
                 break;
 
             case 4:     //out of fuel
-                Physics.gravity = new Vector3(0.0f, 0.0f, 0.0f);
-                hotAirBalloon.AddForce(3 * Physics.gravity);
+                //Physics.gravity = new Vector3(0.0f, 0.0f, 0.0f);
+               // hotAirBalloon.AddForce(-3 * Physics.gravity);
+
+                hotAirBalloon.velocity =new Vector3( 0.0f, (-1.0f * Time.deltaTime), 0.0f);
+
+                Debug.Log("Out Of Fuel");
                 break;
 
             case 5:
@@ -144,7 +160,6 @@ public class Float_Script : MonoBehaviour
     IEnumerator ApplyBoost()
     {
         boostOnTouch = powerBar.value;
-        noOfCanisters--;
         powerBar.value = 10.0f;
 
         if(boostOnTouch >= 5.0f)
@@ -194,6 +209,7 @@ public class Float_Script : MonoBehaviour
             isGrounded = false;
             hotAirBalloon.AddForce(0.0f, 1.0f, 0.0f, ForceMode.Impulse);
         }
+        fingerOnScreen = false;
     }
 
     void ConstantSpeed()
