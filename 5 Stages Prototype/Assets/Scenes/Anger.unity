@@ -200,7 +200,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 384246238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 391e92b84907fd549984590e7934f683, type: 3}
+  m_Script: {fileID: 11500000, guid: 6bb3ef1b949805e448dee9b70851ba80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speedMult: 1.5
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 574358100}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04feb7cd17576544f8d73c264a00cd2d, type: 3}
+  m_Script: {fileID: 11500000, guid: 345df710d18889e4680c84df44ca13f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1926599536}
@@ -409,7 +409,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 605435689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e0382a496da6eb468d9bfe648e24eef, type: 3}
+  m_Script: {fileID: 11500000, guid: ff0296f16d5162d47b49ff51814bc5c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   wall: {fileID: 953694689}
@@ -519,7 +519,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 953694689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 408e84b839b74534597aff2e20e3485d, type: 3}
+  m_Script: {fileID: 11500000, guid: fd8afc1fdae81354491343b42c5cb611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   break_Speed: 0
@@ -547,7 +547,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1186114098}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e17586653a18349b442bfe9a0e5e77, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fe664808d0517b4cb353d525757575d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ground: {fileID: 1186456393}
@@ -683,12 +683,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1926599536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e4b6ecfe1ba6b04692782689fecd1e8, type: 3}
+  m_Script: {fileID: 11500000, guid: da09225b88a03a945b3f0e544abe04bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1000
   rb: {fileID: 0}
-  bonusSpeed: 10
+  bonusSpeed: 1.5
   velocity: 0
 --- !u!23 &1926599538
 MeshRenderer:
