@@ -8,6 +8,7 @@ public class Procedural_Generation_AN : MonoBehaviour
     public GameObject wall;
     public GameObject ground;
     public GameObject player;
+    public int wallCounter;
     int counter = 0;
     float playerZPos;
 
@@ -48,10 +49,10 @@ public class Procedural_Generation_AN : MonoBehaviour
             counter++;
         }
 
-        if (counter % 100 == 0)
+        if (counter % wallCounter == 0)
         {
             GameObject wallClone;
-            wallClone = Instantiate(wall, new Vector3(0.0f, 0.0f, counter + 70), Quaternion.identity);
+            wallClone = Instantiate(wall, new Vector3(0.0f, 2.5f, counter + 70), Quaternion.identity);
             wallClone.SetActive(true);
             wallClone.GetComponent<WallBreakScript>().break_Speed = counter / 10;
         }

@@ -63,7 +63,7 @@ public class Controller : MonoBehaviour
         movement *= Time.deltaTime;
 
         rb.AddForce(movement*speed, ForceMode.Acceleration);
-        rb.AddForce(new Vector3(0, 0, 1), ForceMode.Force);
+        rb.AddForce(new Vector3(0.0f, 0.0f, 1.0f), ForceMode.Force);
 
         lastVelocity = rb.velocity;
     }
