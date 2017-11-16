@@ -1,36 +1,15 @@
 fileFormatVersion: 2
-guid: c9a4b3c6bdc4dee498f531801b44814c
-timeCreated: 1510694875
+guid: 5dbbe5cd74a16d54ba57be123f112dd6
+timeCreated: 1510223733
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
-    100002: SM_leaf_01_BA
-    100004: SM_leaf_02_BA
-    100006: SM_leaf_03_BA
-    100008: SM_leaf_04_BA
     400000: //RootNode
-    400002: SM_leaf_01_BA
-    400004: SM_leaf_02_BA
-    400006: SM_leaf_03_BA
-    400008: SM_leaf_04_BA
-    2300000: SM_leaf_01_BA
-    2300002: SM_leaf_02_BA
-    2300004: SM_leaf_03_BA
-    2300006: SM_leaf_04_BA
-    3300000: SM_leaf_01_BA
-    3300002: SM_leaf_02_BA
-    3300004: SM_leaf_03_BA
-    3300006: SM_leaf_04_BA
-    4300000: SM_leaf_01_BA
-    4300002: SM_leaf_02_BA
-    4300004: SM_leaf_03_BA
-    4300006: SM_leaf_04_BA
-    6400000: SM_leaf_01_BA
-    6400002: SM_leaf_02_BA
-    6400004: SM_leaf_03_BA
-    6400006: SM_leaf_04_BA
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pSolid1
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -61,7 +40,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -80,7 +59,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 0
+    tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0

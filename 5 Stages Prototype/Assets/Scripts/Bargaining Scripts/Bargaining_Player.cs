@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 
 public class Bargaining_Player : MonoBehaviour {
 
@@ -10,16 +10,20 @@ public class Bargaining_Player : MonoBehaviour {
     public float turnSpeed = 50f;
     public float moveSpeed = 5.0f;
     public Rigidbody rb;
-    float StartTime = 0;
-    float RealTime = 0;
-    int CountTime = 0;
+    public Text boosterValue;
+    private float booster;
+    private bool thrust;
+    private float direction;
+    private bool left;
+    private bool up;
+    private bool right;
 
 
 
     // Use this for initialization
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+       SetUp();
        
 
     }
@@ -31,48 +35,94 @@ public class Bargaining_Player : MonoBehaviour {
 
     void Update()
     {
+        Control();
+        Die();
+     
 
-        //Touch myTouch = Input.GetTouch(0);
+        boosterValue.text = booster.ToString(); ;
 
-        //Touch[] myTouches = Input.touches;
-        //for (int i = 0; i < Input.touchCount; i++)
-        //{
-        //    transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
+    }
+
+    void Control()
+    {
+        if (thrust == false && booster < 100)
+        {
+            booster = booster + 1.5f;
+        }
+        if (Input.touchCount > 0)
+        {
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                thrust = true;
+                direction = Input.GetTouch(0).position.x;
+            }
+            if (Input.GetTouch(0).phase == TouchPhase.Ended)
+            {
+                thrust = false;
+            }
+
+            if (thrust == true && booster > 0)
+            {
+                // if (Input.GetKey(KeyCode.UpArrow))
+
+                     GetDirection();
+                     MovePlayer();
+                    booster = booster - 1.2f;
+                }
+            }
+
         //}
 
-      //  if (Input.touchCount > 0)
-       // {
-            //if (Input.GetTouch(0).phase == TouchPhase.Began)
-            //{
-            //    StartTime = Time.time;
-            //    CountTime = 1;
-            //}
-
-           // if (Input.GetTouch(0).phase == TouchPhase.Ended)
-                if (Input.GetKey(KeyCode.UpArrow))
-                {
-                    RealTime = Time.time - StartTime;
-                    CountTime = 0;
-
-                    // transform.Translate(Vector3.right * (RealTime * 20) * Time.deltaTime);
-                    //  GetComponent<Rigidbody>().velocity = new Vector3(40, 50) * 100 * 50;
-                    rb.velocity = new Vector3(3f, 4f, 0f);
-                }
-
-            //}
-
-        if(rb.position.y < -4.0f)
+    }
+    void Die()
+    {
+        if (rb.position.y < -4.0f)
         {
             //TODO die and reset game
             SceneManager.LoadScene("Bargaining");
         }
-        
-
     }
 
-
-
-
+    void SetUp()
+    {
+        rb = GetComponent<Rigidbody>();
+        booster = 100.0f;
+        thrust = false;
+        up = false;
+        left = false;
+        right = false;
+    }
    
+    void GetDirection()
+    {
+        if(direction < rb.position.x)
+        {
+            left = true;
+        }
+        else if(direction> rb.position.x)
+        {
+            right = true;
+        }
+        else
+        {
+            up = true;
+        }
+    }
+
+    void MovePlayer()
+    {
+        if(left == true)
+        {
+            rb.velocity = new Vector3(-2.7f, 4.3f, 0f);
+        }
+        else if(right == true)
+        {
+            rb.velocity = new Vector3(2.7f, 4.3f, 0f);
+        }
+        else if(up == true)
+        {
+            rb.velocity = new Vector3(0.0f, 4.3f, 0f);
+        }
+    }
 }
 
