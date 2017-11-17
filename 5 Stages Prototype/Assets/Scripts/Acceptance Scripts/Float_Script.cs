@@ -17,9 +17,7 @@ public class Float_Script : MonoBehaviour
 
     private bool isBoost = false;       //bool for if a boost is currently being applied
     private bool isGrounded = true;     //bool to say if Balloon has Taken off
-
     private bool fingerOnScreen = false;        //bool to say if there is currently a touch
-
     private bool isCoRoutineActive = false;     //bool to check if co-routines are active
 
     public int noOfCanisters;
@@ -28,7 +26,7 @@ public class Float_Script : MonoBehaviour
 
     public Text cans;       //text to show the amount of fuel cannisters the playere has left to you
     public Text scoreText;
-    private int score;
+    private int score = 0;
 
     //Progress Bar
     public Slider balloonProgress;      //slider to show the progress the balloon has made from the earth to the new planet
@@ -64,7 +62,13 @@ public class Float_Script : MonoBehaviour
         //UI
         
         cans.text = "Cans: " + noOfCanisters.ToString();
+        scoreText.text = score.ToString();
         progressBar();
+
+        if (hotAirBalloon.velocity.y > 0.0)
+        {
+            Score();
+        }
 
         if (isGrounded  && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)      //takeoff
         {
@@ -137,6 +141,7 @@ public class Float_Script : MonoBehaviour
             case 1:     //Ok Boost
                 isBoost = true;
                 hotAirBalloon.AddForce(0.0f, 2.5f, 0.0f, ForceMode.Impulse);
+                score += 250;
                 noOfCanisters--;
                 isBoost = false;
 
@@ -146,6 +151,7 @@ public class Float_Script : MonoBehaviour
             case 2:     //Perfect Boost
                 isBoost = true;
                 hotAirBalloon.AddForce(0.0f, 5.0f, 0.0f, ForceMode.Impulse);
+                score += 500;
                 noOfCanisters--;
                 isBoost = false;
 
@@ -225,6 +231,12 @@ public class Float_Script : MonoBehaviour
         {
             hotAirBalloon.AddForce(0.0f, 2.0f, 0.0f, ForceMode.Impulse);
         }
+    }
+
+    void Score()
+    {
+        score += (int) hotAirBalloon.position.y;
+        
     }
 
     void reachedPlanet()        //reached the new reality
