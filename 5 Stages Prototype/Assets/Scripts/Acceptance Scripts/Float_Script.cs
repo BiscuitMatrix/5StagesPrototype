@@ -2,7 +2,7 @@
 // This script applys the physics to the Hot Air Balloon and also works with the state of the stage.
 
 //To Do
-//- FIX if fuel hits 0 make balloon go down
+//- implement score
 
 using System.Collections;
 using System.Collections.Generic;
@@ -26,7 +26,14 @@ public class Float_Script : MonoBehaviour
 
     //UI Variables
 
-    public Text cans;
+    public Text cans;       //text to show the amount of fuel cannisters the playere has left to you
+    public Text scoreText;
+    private int score;
+
+    //Progress Bar
+    public Slider balloonProgress;      //slider to show the progress the balloon has made from the earth to the new planet
+    private Slider progress;
+    float percentComplete;
 
     //power bar variables
     public Slider PowerSlider;
@@ -37,6 +44,12 @@ public class Float_Script : MonoBehaviour
 
     void Start()
     {
+        //Progress Bar
+        progress = balloonProgress;
+        progress.minValue = 0f;
+        progress.maxValue = 100f;
+        progress.value = 0f;
+
         //Power Bar
         powerBar = PowerSlider;     
 
@@ -49,7 +62,9 @@ public class Float_Script : MonoBehaviour
 	private void Update ()
     {
         //UI
+        
         cans.text = "Cans: " + noOfCanisters.ToString();
+        progressBar();
 
         if (isGrounded  && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)      //takeoff
         {
@@ -66,11 +81,16 @@ public class Float_Script : MonoBehaviour
 
     }
 
-    
+    void progressBar()
+    {
+        percentComplete = (100 / planetTransform.position.y) * hotAirBalloon.position.y;
+        Debug.Log(percentComplete);
+        balloonProgress.value = percentComplete;
+    }
 
     void PowerBar()
     {
-        ConstantSpeed();
+        ConstantSpeed();        //gives balloon constant speed
 
         //fuel loss
         powerBar.value -= fuelLoss * Time.deltaTime;
@@ -79,14 +99,14 @@ public class Float_Script : MonoBehaviour
             fingerOnScreen = true;
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)       //if user touch and noOfCanisters is not empty
             {
-                if (noOfCanisters > 0)
+                if (noOfCanisters > 0 && powerBar.value != 0.0f)
                 {
                     isCoRoutineActive = true;
                     StartCoroutine(ApplyBoost());
                 }
                 
             }
-            else if (noOfCanisters == 0)
+            else if (noOfCanisters == 0 || powerBar.value == 0.0f)
             {
                 isCoRoutineActive = true;
                 StartCoroutine(Empty());
@@ -132,25 +152,16 @@ public class Float_Script : MonoBehaviour
                 Debug.Log("Perfect");
                 break;
 
-            case 3:     //Fuel Leak, emergency Landing
+            case 3:     //out of fuel
                 isBoost = true;
                 noOfCanisters = 0;
-                Boosts(4);
-                isBoost = false;
-
-                Debug.Log("Fuel Leak!");
-                break;
-
-            case 4:     //out of fuel
-                //Physics.gravity = new Vector3(0.0f, 0.0f, 0.0f);
-               // hotAirBalloon.AddForce(-3 * Physics.gravity);
-
                 hotAirBalloon.velocity =new Vector3( 0.0f, (-1.0f * Time.deltaTime), 0.0f);
+                isBoost = false;
 
                 Debug.Log("Out Of Fuel");
                 break;
 
-            case 5:
+            case 4:
                 //translate hot air balloon to new planet slowly and land
                 break;
 
@@ -174,10 +185,6 @@ public class Float_Script : MonoBehaviour
         {
             Boosts(2);
         }
-        else if(boostOnTouch == 0.0f)
-        {
-            Boosts(3);
-        }
 
         yield return null;
 
@@ -189,11 +196,11 @@ public class Float_Script : MonoBehaviour
         powerBar.value = 0.0f;
         if(balloonTransform.position.y < planetTransform.position.y + 5.0f)
         {
-            Boosts(4);
+            Boosts(3);
         }
         else if(balloonTransform.position.y >= planetTransform.position.y + 5.0f)
         {
-            Boosts(5);
+            Boosts(4);
         }
 
 
