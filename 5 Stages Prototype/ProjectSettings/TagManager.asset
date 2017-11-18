@@ -9,6 +9,9 @@ TagManager:
   - Lightning
   - Breakable
   - Clone
+  - den_PathHolder
+  - den_Path
+  - Obstacle_DN
   layers:
   - Default
   - TransparentFX
