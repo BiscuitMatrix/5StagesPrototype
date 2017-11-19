@@ -647,6 +647,7 @@ MonoBehaviour:
   hotAirBalloon: {fileID: 1356150987}
   balloonTransform: {fileID: 1356150986}
   planetTransform: {fileID: 2139918846}
+  engine: {fileID: 802043768}
   noOfCanisters: 3
   cans: {fileID: 875275798}
   scoreText: {fileID: 1206497478}
@@ -695,7 +696,7 @@ GameObject:
   - component: {fileID: 802043768}
   - component: {fileID: 802043767}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: engineFlames
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -825,7 +826,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1547041405
+  randomSeed: -622163549
   InitialModule:
     serializedVersion: 3
     enabled: 1

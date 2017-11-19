@@ -2,7 +2,7 @@
 // This script applys the physics to the Hot Air Balloon and also works with the state of the stage.
 
 //To Do
-//- implement score
+//- 
 
 using System.Collections;
 using System.Collections.Generic;
@@ -14,6 +14,7 @@ public class Float_Script : MonoBehaviour
     public Rigidbody hotAirBalloon;
     public Transform balloonTransform;
     public Transform planetTransform;
+    public ParticleSystem engine;
 
     private bool isBoost = false;       //bool for if a boost is currently being applied
     private bool isGrounded = true;     //bool to say if Balloon has Taken off
@@ -200,6 +201,8 @@ public class Float_Script : MonoBehaviour
     IEnumerator Empty()
     {
         powerBar.value = 0.0f;
+        engine.Stop();
+
         if(balloonTransform.position.y < planetTransform.position.y + 5.0f)
         {
             Boosts(3);
