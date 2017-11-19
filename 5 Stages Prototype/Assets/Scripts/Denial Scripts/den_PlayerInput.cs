@@ -11,12 +11,21 @@ public class den_PlayerInput : MonoBehaviour
 	public float S1maxVel;
 	public float S2maxVel;
 
-	private float laneswitch;
+	// Rotation forwards, representing a physical maniestation of the object's velocity
+	public float constRot;
+	public float S1maxRot;
+	public float S2maxRot;
+
+	private float laneSwitch;
+
+	// variables for the application of touch screen swipe input
+	private Vector2 startPos;
+	private Vector2 direction;
+	private bool directionChosen = false;
 
 	void Start()
 	{
-		// Set the distance the player will go when swiping left or right
-		laneswitch = 1.0f;
+		laneSwitch = 1.0f;
 	}
 
 	// Update is called once per frame
@@ -36,46 +45,69 @@ public class den_PlayerInput : MonoBehaviour
 
 
 	void mobileInput()
-	{
+	{ 
 		// Detect and remember input
 		Touch myTouch = Input.GetTouch(0);
-		//		myTouch.fingerId;
-		//		myTouch.position;
-		//		myTouch.phase;
-		// How do you represent a swipe in code?
-		// Take the difference in position over time
-		Vector2 touchDeltaPosition = myTouch.deltaPosition;
 
-		// Compare
-		if (touchDeltaPosition.x < -1.0f) // Swipe Left  (-ve x val) 
+		// Track a single touch as a direction control.
+		if (Input.touchCount > 0)
 		{
-			// move player to path on the left
-			transform.Translate(Vector3.left * laneswitch);
-			// If not, do nothing
+			Touch touch = Input.GetTouch(0);
+
+			// Handle finger movements based on touch phase.
+			switch (touch.phase)
+			{
+			// Record initial touch position.
+			case TouchPhase.Began:
+				startPos.x = touch.position.x;
+				directionChosen = false;
+				break;
+
+				// Determine direction by comparing the current touch position with the initial one.
+			case TouchPhase.Moved:
+				direction.x = touch.position.x - startPos.x;
+				break;
+
+				// Report that a direction has been chosen when the finger is lifted.
+			case TouchPhase.Ended:
+				directionChosen = true;
+				break;
+			}
 		}
-		else if (touchDeltaPosition.x > 1.0f) // Swipe Right (+ve x val) 
+		if (directionChosen == true)
 		{
-			// move player to path on the right
-			transform.Translate(Vector3.right * laneswitch);
-			// If not, do nothing
+			// Something that uses the chosen direction...
+			// Compare
+			if (direction.x < -1.0f) // Swipe Left  (-ve x val) 
+			{
+				// move player to path on the left
+				transform.Translate(Vector3.left * laneSwitch);
+				directionChosen = false;
+			}
+			else if (direction.x > 1.0f) // Swipe Right (+ve x val) 
+			{
+				// move player to path on the right
+				transform.Translate(Vector3.right * laneSwitch);
+				directionChosen = false;
+			}
 		}
 
-	} // End Input
+	} // End mobileInput
 
 	void desktopInput()
 	{
 		if (Input.GetKeyDown("a")) // Player "swipes" left
 		{
 			// move player to path on the left
-			transform.Translate(Vector3.left * laneswitch);
+			transform.Translate(Vector3.left * laneSwitch);
 			// If not, do nothing
 		}
-		if (Input.GetKeyDown("d")) // Player "swipes" right
+		else if (Input.GetKeyDown("d")) // Player "swipes" right
 		{
 			// move player to path on the right
-			transform.Translate(Vector3.right * laneswitch);
+			transform.Translate(Vector3.right * laneSwitch);
 			// If not, do nothing
 		}
-	}
+	} // End desktopInput
 
 }
