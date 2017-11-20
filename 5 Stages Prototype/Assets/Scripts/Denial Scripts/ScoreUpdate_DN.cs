@@ -26,6 +26,6 @@ public class ScoreUpdate_DN : MonoBehaviour
 
 	void UpdateScore ()
 	{
-		UI.GetComponent<TextAsset> = "Score: " + score;
+		// UI.GetComponent<TextAsset> = "Score: " + score;
 	}
 }
