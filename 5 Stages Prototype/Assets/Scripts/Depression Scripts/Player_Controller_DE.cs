@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Controller_DE : MonoBehaviour {
+public class Player_Controller_DE : MonoBehaviour
+{
 
     public float Jump_Vertical_Force;
     public float Jump_Horizontal_Force;
@@ -92,7 +93,7 @@ public class Player_Controller_DE : MonoBehaviour {
         }
     }
 
-    private bool Check_Grounded()
+    void Check_Grounded()
     {
         if (Is_Grounded)
         {
@@ -107,12 +108,10 @@ public class Player_Controller_DE : MonoBehaviour {
         if (Physics.Raycast (transform.position - new Vector3(0, 0.45f, 0), -transform.up, Ray_Hit_Distance))
         {
             Is_Grounded = true;
-            return true;
         }
         else
         {
             Is_Grounded = false;
-            return false;
         }
     }
 
